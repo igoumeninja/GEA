@@ -10,7 +10,7 @@ boolTable = { true, true, false }
 floatTable = { 1.23, 2.34, 4.56 }
 stringTable = { "hello", "some text", "cha cha" }
 
--- an array of mixed variable types
+-- DO NOT MIX VARIABLE TYPES, it dosen't work in C++
 mixedTable = { true, 1, 2.34, "kaa" }
 
 -- variables within a table
@@ -24,9 +24,6 @@ atable.boolTable = { true, true, false }
 atable.floatTable = { 1.23, 2.34, 4.56 }
 atable.stringTable = { "hello", "some text", "cha cha" }
 atable.mixedTable = { true, 1, 2.34, "kaa" }
-atable.hashTable = {["one"] = "foo", ["two"] = "bar" }
-
-atable.afunction = function() print("hey") end
 
 -- another table for clearing
 anotherTable = {}

@@ -8,6 +8,8 @@
  * See https://github.com/danomatika/ofxLua for documentation
  *
  */
+
+
 #include "ofApp.h"
 
 //--------------------------------------------------------------
@@ -18,16 +20,13 @@ void ofApp::setup() {
 	ofSetLogLevel("ofxLua", OF_LOG_VERBOSE);
 		
 	// scripts to run
-	scripts.push_back("scripts/graphicsExample.lua");
-	scripts.push_back("scripts/imageLoaderExample.lua");
-	scripts.push_back("scripts/polygonExample.lua");
-	scripts.push_back("scripts/fontsExample.lua");
-	scripts.push_back("scripts/boringTests.lua");
+	scripts.push_back("scripts/my-lua-scripts/startup.lua");
 	currentScript = 0;
 	
 	// init the lua state
 	lua.init();
-	
+    lua.init(true);
+    luaopen_my(lua); // open bindings
 	// listen to error events
 	lua.addListener(this);
 	

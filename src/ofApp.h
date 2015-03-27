@@ -14,10 +14,16 @@
 
 #include "ofxLua.h"
 
+// declare the module bindings
+extern "C" {
+    int luaopen_my(lua_State* L);
+}
+
 class ofApp : public ofBaseApp, ofxLuaListener {
 
 	public:
 
+    
 		// main
 		void setup();
 		void update();
