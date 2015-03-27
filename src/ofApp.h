@@ -13,6 +13,7 @@
 #include "ofMain.h"
 
 #include "ofxLua.h"
+#include "MyCode.h"
 
 // declare the module bindings
 extern "C" {

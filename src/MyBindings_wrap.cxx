@@ -2624,10 +2624,8 @@ SWIG_Lua_dostring(lua_State *L, const char *str) {
 
 /* -------- TYPES TABLE (BEGIN) -------- */
 
-#define SWIGTYPE_p_MyCoolClass swig_types[0]
-#define SWIGTYPE_p_string swig_types[1]
-static swig_type_info *swig_types[3];
-static swig_module_info swig_module = {swig_types, 2, 0, 0, 0, 0};
+static swig_type_info *swig_types[1];
+static swig_module_info swig_module = {swig_types, 0, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -2646,115 +2644,11 @@ typedef struct{} LANGUAGE_OBJ;
 
     // include any needed headers here
 #include "ofMain.h"
+#include "MyCode.h"
     
 #ifdef __cplusplus
 extern "C" {
 #endif
-static int _wrap_myFunction(lua_State* L) { int SWIG_arg = 0; float arg1 ; float result; SWIG_check_num_args("myFunction",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("myFunction",1,"float"); arg1 = (float)lua_tonumber(L, 1);
-  result = (float)myFunction(arg1); lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail:
-  lua_error(L); return SWIG_arg; }
-static int _wrap_new_MyCoolClass__SWIG_0(lua_State* L) { int SWIG_arg = 0; MyCoolClass *result = 0 ;
-  SWIG_check_num_args("MyCoolClass::MyCoolClass",0,0) result = (MyCoolClass *)new MyCoolClass();
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_MyCoolClass,1); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
-  return SWIG_arg; }
-static int _wrap_new_MyCoolClass__SWIG_1(lua_State* L) { int SWIG_arg = 0; float arg1 ; MyCoolClass *result = 0 ;
-  SWIG_check_num_args("MyCoolClass::MyCoolClass",1,1)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("MyCoolClass::MyCoolClass",1,"float"); arg1 = (float)lua_tonumber(L, 1);
-  result = (MyCoolClass *)new MyCoolClass(arg1); SWIG_NewPointerObj(L,result,SWIGTYPE_p_MyCoolClass,1); SWIG_arg++; 
-  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
-static int _wrap_new_MyCoolClass(lua_State* L) { int argc; int argv[2]={ 1,2} ; argc = lua_gettop(L); if (argc == 0) {
-    return _wrap_new_MyCoolClass__SWIG_0(L);}  if (argc == 1) { int _v; { _v = lua_isnumber(L,argv[0]); }  if (_v) {
-      return _wrap_new_MyCoolClass__SWIG_1(L);}  } 
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'new_MyCoolClass'\n" "  Possible C/C++ prototypes are:\n"
-  "    MyCoolClass::MyCoolClass()\n" "    MyCoolClass::MyCoolClass(float)\n"); lua_error(L);return 0; }
-static int _wrap_MyCoolClass_doSomething(lua_State* L) { int SWIG_arg = 0; MyCoolClass *arg1 = (MyCoolClass *) 0 ;
-  SWIG_check_num_args("MyCoolClass::doSomething",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("MyCoolClass::doSomething",1,"MyCoolClass *");
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_MyCoolClass,0))){
-    SWIG_fail_ptr("MyCoolClass_doSomething",1,SWIGTYPE_p_MyCoolClass); }  (arg1)->doSomething(); return SWIG_arg;
-  if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
-static int _wrap_MyCoolClass_setInt(lua_State* L) { int SWIG_arg = 0; MyCoolClass *arg1 = (MyCoolClass *) 0 ; int arg2 ;
-  SWIG_check_num_args("MyCoolClass::setInt",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("MyCoolClass::setInt",1,"MyCoolClass *");
-  if(!lua_isnumber(L,2)) SWIG_fail_arg("MyCoolClass::setInt",2,"int");
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_MyCoolClass,0))){
-    SWIG_fail_ptr("MyCoolClass_setInt",1,SWIGTYPE_p_MyCoolClass); }  arg2 = (int)lua_tonumber(L, 2); (arg1)->setInt(arg2);
-  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
-static int _wrap_MyCoolClass_getInt(lua_State* L) { int SWIG_arg = 0; MyCoolClass *arg1 = (MyCoolClass *) 0 ; int result;
-  SWIG_check_num_args("MyCoolClass::getInt",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("MyCoolClass::getInt",1,"MyCoolClass *");
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_MyCoolClass,0))){
-    SWIG_fail_ptr("MyCoolClass_getInt",1,SWIGTYPE_p_MyCoolClass); }  result = (int)(arg1)->getInt();
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
-static int _wrap_MyCoolClass_aString_set(lua_State* L) { int SWIG_arg = 0; MyCoolClass *arg1 = (MyCoolClass *) 0 ; string arg2 ;
-  string *argp2 ; SWIG_check_num_args("MyCoolClass::aString",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("MyCoolClass::aString",1,"MyCoolClass *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("MyCoolClass::aString",2,"string");
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_MyCoolClass,0))){
-    SWIG_fail_ptr("MyCoolClass_aString_set",1,SWIGTYPE_p_MyCoolClass); } 
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_string,0))){
-    SWIG_fail_ptr("MyCoolClass_aString_set",2,SWIGTYPE_p_string); }  arg2 = *argp2; if (arg1) (arg1)->aString = arg2;
-  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
-static int _wrap_MyCoolClass_aString_get(lua_State* L) { int SWIG_arg = 0; MyCoolClass *arg1 = (MyCoolClass *) 0 ;
-  string result; SWIG_check_num_args("MyCoolClass::aString",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("MyCoolClass::aString",1,"MyCoolClass *");
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_MyCoolClass,0))){
-    SWIG_fail_ptr("MyCoolClass_aString_get",1,SWIGTYPE_p_MyCoolClass); }  result =  ((arg1)->aString); {
-    string * resultptr = new string((const string &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_string,1); SWIG_arg++; }  return SWIG_arg; if(0) SWIG_fail; fail:
-  lua_error(L); return SWIG_arg; }
-static void swig_delete_MyCoolClass(void *obj) {
-MyCoolClass *arg1 = (MyCoolClass *) obj;
-delete arg1;
-}
-static int _proxy__wrap_new_MyCoolClass(lua_State *L) {
-    assert(lua_istable(L,1));
-    lua_pushcfunction(L,_wrap_new_MyCoolClass);
-    assert(!lua_isnil(L,-1));
-    lua_replace(L,1); /* replace our table with real constructor */
-    lua_call(L,lua_gettop(L)-1,1);
-    return 1;
-}
-static swig_lua_attribute swig_MyCoolClass_attributes[] = {
-    { "aString", _wrap_MyCoolClass_aString_get, _wrap_MyCoolClass_aString_set },
-    {0,0,0}
-};
-static swig_lua_method swig_MyCoolClass_methods[]= {
-    { "doSomething", _wrap_MyCoolClass_doSomething},
-    { "setInt", _wrap_MyCoolClass_setInt},
-    { "getInt", _wrap_MyCoolClass_getInt},
-    {0,0}
-};
-static swig_lua_method swig_MyCoolClass_meta[] = {
-    {0,0}
-};
-
-static swig_lua_attribute swig_MyCoolClass_Sf_SwigStatic_attributes[] = {
-    {0,0,0}
-};
-static swig_lua_const_info swig_MyCoolClass_Sf_SwigStatic_constants[]= {
-    {0,0,0,0,0,0}
-};
-static swig_lua_method swig_MyCoolClass_Sf_SwigStatic_methods[]= {
-    {0,0}
-};
-static swig_lua_class* swig_MyCoolClass_Sf_SwigStatic_classes[]= {
-    0
-};
-
-static swig_lua_namespace swig_MyCoolClass_Sf_SwigStatic = {
-    "MyCoolClass",
-    swig_MyCoolClass_Sf_SwigStatic_methods,
-    swig_MyCoolClass_Sf_SwigStatic_attributes,
-    swig_MyCoolClass_Sf_SwigStatic_constants,
-    swig_MyCoolClass_Sf_SwigStatic_classes,
-    0
-};
-static swig_lua_class *swig_MyCoolClass_bases[] = {0};
-static const char *swig_MyCoolClass_base_names[] = {0};
-static swig_lua_class _wrap_class_MyCoolClass = { "MyCoolClass", "MyCoolClass", &SWIGTYPE_p_MyCoolClass,_proxy__wrap_new_MyCoolClass, swig_delete_MyCoolClass, swig_MyCoolClass_methods, swig_MyCoolClass_attributes, &swig_MyCoolClass_Sf_SwigStatic, swig_MyCoolClass_meta, swig_MyCoolClass_bases, swig_MyCoolClass_base_names };
-
 static swig_lua_attribute swig_SwigModule_attributes[] = {
     {0,0,0}
 };
@@ -2762,11 +2656,9 @@ static swig_lua_const_info swig_SwigModule_constants[]= {
     {0,0,0,0,0,0}
 };
 static swig_lua_method swig_SwigModule_methods[]= {
-    { "myFunction", _wrap_myFunction},
     {0,0}
 };
 static swig_lua_class* swig_SwigModule_classes[]= {
-&_wrap_class_MyCoolClass,
     0
 };
 static swig_lua_namespace* swig_SwigModule_namespaces[] = {
@@ -2787,20 +2679,14 @@ static swig_lua_namespace swig_SwigModule = {
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (BEGIN) -------- */
 
-static swig_type_info _swigt__p_MyCoolClass = {"_p_MyCoolClass", "MyCoolClass *", 0, 0, (void*)&_wrap_class_MyCoolClass, 0};
-static swig_type_info _swigt__p_string = {"_p_string", "string *", 0, 0, (void*)0, 0};
 
 static swig_type_info *swig_type_initial[] = {
-  &_swigt__p_MyCoolClass,
-  &_swigt__p_string,
+  NULL
 };
 
-static swig_cast_info _swigc__p_MyCoolClass[] = {  {&_swigt__p_MyCoolClass, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_string[] = {  {&_swigt__p_string, 0, 0, 0},{0, 0, 0, 0}};
 
 static swig_cast_info *swig_cast_initial[] = {
-  _swigc__p_MyCoolClass,
-  _swigc__p_string,
+  NULL
 };
 
 

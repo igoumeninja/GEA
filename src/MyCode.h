@@ -1,32 +1,40 @@
-//
-//  MyCode.h
-//  gea_swig
-//
-//  Created by Aris Bezas on 3/27/15.
-//
-//
+#pragma once
 
-#ifndef gea_swig_MyCode_h
-#define gea_swig_MyCode_h
+#include "ofMain.h"
 
-float myFunction(float aNumber);
+float myFunction(float aNumber) {
+    return aNumber+1;
+}
 
 class MyCoolClass {
 public:
     
-    MyCoolClass();
-    MyCoolClass(float aNumber);
+    MyCoolClass() {
+        myFloat = 0;
+        myInt = 0;
+        aString = "hello world";
+    }
+    MyCoolClass(float aNumber) {
+        myFloat = aNumber;
+        myInt = (int) aNumber;
+        aString = "foo bar";
+    }
     
     // member function
-    void doSomething();
+    void doSomething() {
+        ofLog() << "did something: " << aString;
+    }
     
     // getter/setter
-    void setInt(int newInt);
-    int getInt();
+    void setInt(int newInt) {myInt = newInt;}
+    int getInt() {return myInt;}
     
     // member variable, read/write
     string aString;
+    
+protected:
+    
+    // some protected member variables, won't be wrapped
+    float myFloat;
+    int myInt;
 };
-
-#endif
-
