@@ -27,6 +27,7 @@ void ofApp::setup() {
     lua.init();
     //lua.init(true);
     luaopen_my(lua); // open bindings
+    lua.printTable();
 	// listen to error events
 	lua.addListener(this);
 	

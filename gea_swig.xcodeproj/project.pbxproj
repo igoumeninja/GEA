@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		026A36331AC5D86D00679FCF /* MyBindings_wrap.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 026A36321AC5D86D00679FCF /* MyBindings_wrap.cxx */; };
+		023BB7A81AC5E9F000E0E0C8 /* MyBindings_wrap.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 023BB7A71AC5E9F000E0E0C8 /* MyBindings_wrap.cxx */; };
 		02E27B38F17BEF76FF522D42 /* lfunc.c in Sources */ = {isa = PBXBuildFile; fileRef = 855F31F917FFF2933D3AA429 /* lfunc.c */; };
 		0546D1A38E13BD319CC9755B /* OscReceivedElements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BF3AA0D4FAA89D0F8A0E545 /* OscReceivedElements.cpp */; };
 		0699C1CEAB1C5BB0A5D62A33 /* loslib.c in Sources */ = {isa = PBXBuildFile; fileRef = 46B044906DD09B9F75E26B56 /* loslib.c */; };
@@ -108,8 +108,8 @@
 
 /* Begin PBXFileReference section */
 		00D6D32B84B099226431108C /* ofxOsc.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxOsc.h; path = ../../../addons/ofxOsc/src/ofxOsc.h; sourceTree = SOURCE_ROOT; };
+		023BB7A71AC5E9F000E0E0C8 /* MyBindings_wrap.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MyBindings_wrap.cxx; sourceTree = "<group>"; };
 		026A362B1AC5C22800679FCF /* MyCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCode.h; sourceTree = "<group>"; };
-		026A36321AC5D86D00679FCF /* MyBindings_wrap.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MyBindings_wrap.cxx; sourceTree = "<group>"; };
 		029684CF678F70F6D3537A29 /* OscOutboundPacketStream.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OscOutboundPacketStream.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscOutboundPacketStream.h; sourceTree = SOURCE_ROOT; };
 		09A03334BDC8D640D4982303 /* ldump.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = ldump.c; path = ../../../addons/ofxLua/libs/lua/ldump.c; sourceTree = SOURCE_ROOT; };
 		0AED834CE4DEC5260AF302A2 /* ofxOscParameterSync.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxOscParameterSync.cpp; path = ../../../addons/ofxOsc/src/ofxOscParameterSync.cpp; sourceTree = SOURCE_ROOT; };
@@ -498,7 +498,7 @@
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				026A362B1AC5C22800679FCF /* MyCode.h */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
-				026A36321AC5D86D00679FCF /* MyBindings_wrap.cxx */,
+				023BB7A71AC5E9F000E0E0C8 /* MyBindings_wrap.cxx */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -680,7 +680,7 @@
 				8A939BF918ABF4857690F42F /* loadlib.c in Sources */,
 				0FD2865C5D8A0BFE69E95547 /* lobject.c in Sources */,
 				2CEA5A91F769BB162C8D046A /* lopcodes.c in Sources */,
-				026A36331AC5D86D00679FCF /* MyBindings_wrap.cxx in Sources */,
+				023BB7A81AC5E9F000E0E0C8 /* MyBindings_wrap.cxx in Sources */,
 				0699C1CEAB1C5BB0A5D62A33 /* loslib.c in Sources */,
 				F7513467F92F7AF3DAD30251 /* lparser.c in Sources */,
 				50910FB3A58F53BC16FAE224 /* lstate.c in Sources */,
