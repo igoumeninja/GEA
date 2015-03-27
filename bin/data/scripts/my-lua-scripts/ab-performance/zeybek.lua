@@ -1,0 +1,52 @@
+  /Users/ari/Tools/openFrameworks/of_v0.8.4_osx_release/addons/ofxLua/gea/bin/data/scripts/my-lua-scripts/ab-performance:
+  total used in directory 376 available 152197893
+  drwxr-xr-x  50 ari  staff  1700 Aug 14 14:41 .
+  lrwxr-xr-x   1 ari  staff    24 Jul  5 11:20 .#140705.lua -> ari@Late2011.local.24556
+  lrwxr-xr-x   1 ari  staff    23 Jul 28 17:36 .#tsepelovo.lua -> ari@Late2011.local.1079
+  drwxr-xr-x  14 ari  staff   476 Nov  5 23:26 ..
+  -rw-r--r--   1 ari  staff   882 Apr 21  2014 1402011659.lua
+  -rw-r--r--   1 ari  staff   908 Apr 21  2014 1402061502-midi.lua
+  -rw-r--r--   1 ari  staff  1108 Jul 16 18:11 140716.lua
+  -rw-r--r--   1 ari  staff   561 Jul 23 16:26 140723.lua
+  -rw-r--r--   1 ari  staff   702 Jul 23 16:24 140723_2.lua
+  -rw-r--r--   1 ari  staff   692 Aug  7 00:04 140806.lua
+  -rw-r--r--   1 ari  staff   927 Apr 21  2014 6min.lua
+  -rw-r--r--   1 ari  staff   569 Jul 24 00:01 amp-rect.lua
+  -rw-r--r--   1 ari  staff  1026 Feb 21  2014 circles.lua
+  -rw-r--r--   1 ari  staff   799 Jul 23 16:29 differnet-rose.lua
+  -rw-r--r--   1 ari  staff   388 Jul  4 16:58 empty.lua
+  -rw-r--r--   1 ari  staff   381 Apr 26  2014 empty.lua~
+  -rw-r--r--   1 ari  staff  1202 Jul 28 17:29 epicycloid.lua
+  -rw-r--r--   1 ari  staff  1685 Apr 21  2014 image-painting.lua
+  -rw-r--r--   1 ari  staff   936 Aug 14 14:41 lefkimi.lua
+  -rw-r--r--   1 ari  staff   324 Jul 23 13:50 machine-listening.lua
+  -rw-r--r--   1 ari  staff  1255 Jun 17 18:05 medea_electronique_01.lua
+  -rw-r--r--   1 ari  staff   958 Jul  4 16:42 medea_electronique_02.lua
+  -rw-r--r--   1 ari  staff   959 Apr 26  2014 medea_electronique_02.lua~
+  -rw-r--r--   1 ari  staff   688 Apr 23  2014 medea_electronique_03.lua
+  -rw-r--r--   1 ari  staff  1094 Jul 16 16:51 medea_electronique_04.lua
+  -rw-r--r--   1 ari  staff   880 Jul  4 16:59 medea_electronique_05.lua
+  -rw-r--r--   1 ari  staff   880 Apr 26  2014 medea_electronique_05.lua~
+  -rw-r--r--   1 ari  staff  1055 Jul 27 11:37 medea_electronique_06.lua
+  -rw-r--r--   1 ari  staff  2228 Apr 26  2014 medea_electronique_07.lua
+  -rw-r--r--   1 ari  staff   914 Jul 27 11:42 medea_electronique_08.lua
+  -rw-r--r--   1 ari  staff  1401 Jul 27 11:44 medea_electronique_09.lua
+  -rw-r--r--   1 ari  staff   973 Apr 26  2014 medea_electronique_10.lua
+  -rw-r--r--   1 ari  staff  1117 Jul  8 15:47 medea_electronique_11.lua
+  -rw-r--r--   1 ari  staff  1103 Jul  9 09:45 medea_electronique_12.lua
+  -rw-r--r--   1 ari  staff  1173 Apr 26  2014 medea_electronique_13.lua
+  -rw-r--r--   1 ari  staff   701 Feb 21  2014 mlab.lua
+  -rw-r--r--   1 ari  staff   835 Feb 21  2014 numbers-in-sin.lua
+  -rw-r--r--   1 ari  staff   995 Apr 19  2014 numbers-in-sin_II.lua
+  -rw-r--r--   1 ari  staff   840 Feb 21  2014 pattern1012.lua
+  -rw-r--r--   1 ari  staff   795 Feb 21  2014 pattern1446.lua
+  -rw-r--r--   1 ari  staff   940 Feb 21  2014 patternColor1432.lua
+  -rw-r--r--   1 ari  staff  1357 Feb 25  2014 polygons.lua
+  -rw-r--r--   1 ari  staff  1702 Jul  8 15:45 print-source-code.lua
+  -rw-r--r--   1 ari  staff   991 Jul 24 00:12 rose-amp.lua
+  -rw-r--r--   1 ari  staff   666 Jul 23 11:24 stop-motion.lua
+  drwxr-xr-x   8 ari  staff   272 Apr  9  2014 toFix
+  -rw-r--r--   1 ari  staff   756 Apr 21  2014 todo-140208.lua
+  -rw-r--r--   1 ari  staff   510 Jul 28 17:36 tsepelovo.lua
+  -rw-r--r--   1 ari  staff   813 Feb 21  2014 tzamara.lua
+  -rw-r--r--   1 ari  staff  1240 Apr 21  2014 vertex-in-circle.lua

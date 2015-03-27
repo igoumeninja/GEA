@@ -24,7 +24,7 @@ void ofApp::setup() {
 	currentScript = 0;
 	
 	// init the lua state
-	lua.init();
+    //	lua.init();
     lua.init(true);
     luaopen_my(lua); // open bindings
 	// listen to error events

@@ -1,0 +1,43 @@
+*YASNIPPET*
+
+- frame
+- mlab
+  - amp
+  - freq
+  - note
+- sin
+- framenum
+- image
+- for i
+- coroutine
+- for ipairs
+- for pairs
+- fun
+- fun
+- function
+- if
+- local function
+- of-beginShape
+- of-color
+- of-ellipse
+- of-fill
+- of-frame-midi
+- width
+- height
+- of-loadfont
+- of-midi-map
+- of-pushMatrix
+- of-rect
+- smooth
+- ellipse
+- osc-sender
+- rand
+- repeat
+- while
+
+----------------
+
+M-x add-script
+M-x update-script
+M-x shader
+M-x doshader
