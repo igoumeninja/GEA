@@ -1,5 +1,3 @@
-
-
 function setup()
    of.setWindowTitle("startUp")
    of.background(0)

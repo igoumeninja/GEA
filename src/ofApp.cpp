@@ -24,8 +24,8 @@ void ofApp::setup() {
 	currentScript = 0;
 	
 	// init the lua state
-    //	lua.init();
-    lua.init(true);
+    lua.init();
+    //lua.init(true);
     luaopen_my(lua); // open bindings
 	// listen to error events
 	lua.addListener(this);
@@ -35,6 +35,7 @@ void ofApp::setup() {
 	
 	// reinit the lua state, clears test data in state
 	lua.init(true); // true because we want to stop on an error
+    luaopen_my(lua); // open bindings
 	
 	// run a script
 	lua.doScript(scripts[currentScript]);
@@ -123,6 +124,7 @@ void ofApp::reloadScript() {
 	// exit, reinit the lua state, and reload the current script
 	lua.scriptExit();
 	lua.init();
+    luaopen_my(lua); // open bindings
 	lua.doScript(scripts[currentScript]);
 	lua.scriptSetup();
 }
