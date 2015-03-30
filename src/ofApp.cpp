@@ -14,7 +14,47 @@
 
 //--------------------------------------------------------------
 void ofApp::setup() {
+    ofSetCircleResolution(5);
+    ofSetBackgroundAuto(false);
+    ofEnableSmoothing();
+    ofEnableAlphaBlending();
+    
+    receiver.setup(12345);
+    luaSender.setup(HOST, 46101);
+    scriptID = 0;
+    
+    current_msg_string = 0;
+    
+    ofSetVerticalSync(true);
+    ofSetLogLevel("ofxLua", OF_LOG_VERBOSE);
+    
+    scripts.push_back("/Users/ari/Tools/openFrameworks/of_v0.8.4_osx_release/addons/ofxLua/gea/bin/data/scripts/my-lua-scripts/startup.lua");
+    currentScript = 0;
+    
+    //****** SHADERS *******//
+#ifdef TARGET_OPENGLES
+    shader.load(
+                "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/addons/ofxLua/gea/bin/data/scripts/my-shaders/of-example/noise.vert",
+                "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/addons/ofxLua/gea/bin/data/scripts/my-shaders/of-example/noise.frag");
+    
+#else
+    if(ofGetGLProgrammableRenderer()){
+        shader.load(
+                    "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/addons/ofxLua/gea/bin/data/scripts/my-shaders/of-example/noise.vert",
+                    "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/addons/ofxLua/gea/bin/data/scripts/my-shaders/of-example/noise.frag");
+    }else{
+        shader.load(
+                    "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/addons/ofxLua/gea/bin/data/scripts/my-shaders/of-example/noise.vert",
+                    "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/addons/ofxLua/gea/bin/data/scripts/my-shaders/of-example/noise.frag");
+    }
+#endif
+    
+    doShader = false;
+    
+    //******************//
+    //******************//
 
+    
 	ofSetVerticalSync(true);
 	ofSetFrameRate(30);
 	ofSetLogLevel("ofxLua", OF_LOG_VERBOSE);
@@ -47,6 +87,85 @@ void ofApp::setup() {
 
 //--------------------------------------------------------------
 void ofApp::update() {
+    //******************//
+    //****** GEA *******//
+    
+    onsetBool = false;
+    
+    for(int i = 0; i < NUM_MSG_STRINGS; i++){
+        if(timers[i] < ofGetElapsedTimef()){
+            msg_strings[i] = "";
+        }
+    }
+    
+    // check for waiting messages
+    while(receiver.hasWaitingMessages()){
+        // get the next message
+        ofxOscMessage m;
+        receiver.getNextMessage(&m);
+        
+        // GEA SCRIPT READING
+        if(m.getAddress() == "addScript"){
+            scripts.push_back(m.getArgAsString(0));
+            scriptID++;
+            runScript(scriptID);
+            cout << m.getArgAsString(0) << endl;
+        }
+        if(m.getAddress() == "updateScript"){
+            reloadScript();
+        }
+        
+        //Shaders
+        if(m.getAddress() == "updateShaders"){
+            //test load shader
+#ifdef TARGET_OPENGLES
+            shader.load(
+                        "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/addons/ofxLua/gea/bin/data/scripts/my-shaders/of-example/noise.vert",
+                        "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/addons/ofxLua/gea/bin/data/scripts/my-shaders/of-example/noise.frag");
+            
+#else
+            if(ofGetGLProgrammableRenderer()){
+                shader.load(
+                            "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/addons/ofxLua/gea/bin/data/scripts/my-shaders/of-example/noise.vert",
+                            "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/addons/ofxLua/gea/bin/data/scripts/my-shaders/of-example/noise.frag");
+            }else{
+                shader.load(
+                            "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/addons/ofxLua/gea/bin/data/scripts/my-shaders/of-example/ab.vert",
+                            "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/addons/ofxLua/gea/bin/data/scripts/my-shaders/of-example/ab.frag");
+            }
+#endif
+        }
+        if(m.getAddress() == "doShader") {doShader = !doShader;}
+        
+        // Algorithmic Dynamic Score
+        if(m.getAddress() == "/beat"){
+            beatNum = m.getArgAsInt32(0);
+            cout << beatNum << endl;
+        }
+        if(m.getAddress() == "/meter"){
+            meterNum = m.getArgAsInt32(0);
+            cout << meterNum << endl;
+        }
+        
+        // Machine Listening
+        if(m.getAddress() == "/amp"){
+            amplitude = m.getArgAsFloat(0);
+            //cout << amplitude << endl;
+        }
+        if(m.getAddress() == "/freq"){
+            frequency = m.getArgAsFloat(0);
+            //cout << m.getArgAsFloat(0)  << endl;
+        }
+        if(m.getAddress() == "/onset"){
+            onsetBool = true;
+        }
+        if(m.getAddress() == "/note"){
+            midiNote = m.getArgAsFloat(0);
+            cout << m.getArgAsFloat(0) << endl;
+        }
+        
+    }
+    //******************//
 	// call the script's update() function
 	lua.scriptUpdate();
 }
@@ -377,3 +496,36 @@ void ofApp::prevScript() {
 	lua.printStack();
 	ofLog() << "*** TESTS DONE ***" << endl;
  }
+
+void ofApp::runScript(int scriptID) {
+    currentScript++;
+    lua.scriptExit();
+    lua.init();
+    luaopen_my(lua); // open bindings
+    //lua.bind<ofxLuaBindings>();
+    lua.doScript(scripts[scriptID]);
+    lua.scriptSetup();
+}
+//******************//
+
+
+int ofApp::beat() {
+    return beatNum;
+}
+int ofApp::meter() {
+    return meterNum;
+}
+
+float ofApp::amp() {
+    return amplitude;
+}
+float ofApp::freq() {
+    return frequency;
+}
+bool ofApp::onset() {
+    return onsetBool;
+}
+float ofApp::note() {
+    return midiNote;
+}
+

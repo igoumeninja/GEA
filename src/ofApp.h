@@ -13,6 +13,10 @@
 #include "ofMain.h"
 
 #include "ofxLua.h"
+#include "ofxOsc.h"
+#define HOST "localhost"
+#define NUM_MSG_STRINGS 20
+
 //#include "MyCode.h"
 
 // declare the module bindings
@@ -52,4 +56,41 @@ class ofApp : public ofBaseApp, ofxLuaListener {
 		ofxLua lua;
 		vector<string> scripts;
 		int currentScript;
+    void runScript(int scriptID);
+    
+    ofxOscReceiver receiver;
+    ofxOscSender	luaSender;
+    
+    int current_msg_string;
+    string msg_strings[NUM_MSG_STRINGS];
+    float timers[NUM_MSG_STRINGS];
+    string scriptDirectory;
+    int scriptID;
+    
+    int beat();
+    int beatNum;
+    int meter();
+    int meterNum;
+    
+    float mlab[100];
+    float amp();
+    float amplitude;
+    float freq();
+    float frequency;
+    bool onset();
+    bool onsetBool;
+    
+    //******************//
+    //****** Other *****//
+    
+    float midiNote;
+    float note();
+    ofCamera cam;
+    
+    
+    //****** Shaders ****//
+    //*******************//
+    ofShader shader;
+    bool doShader;
+    
 };
