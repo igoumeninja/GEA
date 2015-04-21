@@ -1,0 +1,3 @@
+[submodule "algorithmic-dynamic-score"]
+	path = algorithmic-dynamic-score
+	url = git@github.com:igoumeninja/algorithmic-dynamic-score.git
