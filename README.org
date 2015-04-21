@@ -1,1 +1,62 @@
 #+TITLE: Gea: Heterogenous System (oF-ofxLua-SuperCollider-Emacs)
+
+GEA (Graphics Engine for Artists) is an Heterogeneous System for Live Visuals with the use Dynamic Algorithmic Score developed by Aris Bezas (aka igoumeninja).
+
+The required software of GEA are the following:
+- [[http://www.openframeworks.cc/download/][openFrameworks]]
+  - [[https://github.com/danomatika/ofxLua][ofxLua]] by Dan Wilxon (should be placed inside openFrameworks)
+  - [[https://github.com/danomatika/ofxLua][ofxMIDI]] by Dan Wilxon (should be placed inside openFrameworks)
+- [[http://supercollider.sourceforge.net/][SuperCollider]]
+- [[http://www.gnu.org/software/emacs/][Emacs]]
+
+
+* Emacs configuration for sendind OSC messages
+
+
+#+BEGIN_SRC emacs
+;; Use emacs as interpreter
+;;
+;; Aris Bezas 8:27 AM Apr 18, 2013
+;; ========================================
+
+;; Send OSC messages with Emacs include osc.el from http://delysid.org/emacs/osc.html at Emacs.app/Contents/...
+
+;; Create SuperColider and openFrameworks OSC clients
+(setq sc-client (osc-make-client "127.0.0.1" 57120))
+(setq of-client (osc-make-client "127.0.0.1" 12345))
+(setq gea-client (osc-make-client "127.0.0.1" 12345))
+
+;;===========================================
+(defun send-test-osc ()  (interactive)
+  (osc-send-message sc-client "1,2,3 Test"))
+
+(defun update-script ()  (interactive) (save-buffer)
+  (osc-send-message gea-client "updateScript" (buffer-file-name)))
+(global-set-key (kbd "s-<return>") 'update-script)
+
+(defun add-script ()  (interactive) (save-buffer)
+  (osc-send-message gea-client "addScript" (buffer-file-name)))
+(global-set-key (kbd "C-M-+") 'add-script)
+
+(defun shader ()  (interactive) (save-buffer)
+  (osc-send-message gea-client "updateShaders"))
+
+(defun doshader ()  (interactive) (save-buffer)
+  (osc-send-message gea-client "doShader"))
+
+(menu-bar-mode -1)
+#+END_SRC
+* Include MIDI
+The *GEA* xcode project is including ofxMIDI addon. To make it work follow the ofxMIDI instruction from https://github.com/danomatika/ofxMidi#adding-ofxmidi-to-an-existing-project
+
+* Usefull tips
+- Usefull XCode plug-in https://vimeo.com/
+- Copy *algorothmic-dynamic-score* folder to /Supercollider/Extensions/ folder
+- Install Emacs and osc.el package (http://delysid.org/emacs/osc.html)
+
+* Fix flickering with ofSetBackgroundAuto(true) (OPTIONAL)
+
+- Fix bug from mypost at OF forum [fn:offorumpost]. If flickering is a problem, there is a change you can make deep inside OF:
+  1. open =ofAppGlutWindow.cpp= from =./libs/openFrameworks/app=
+  2. search replace GLUT_DOUBLE with GLUT_SINGLE
+  3. search replace glutSwapBuffers with glFlush. This will help with ofSetBackgroundAuto(false), but it will make ofSetBackgroundAuto(true) look bad.
