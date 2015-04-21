@@ -16,6 +16,7 @@
 void ofApp::setup() {
     ofSetCircleResolution(5);
     ofSetBackgroundAuto(false);
+    ofBackground(0);
     ofEnableSmoothing();
     ofEnableAlphaBlending();
     
@@ -34,18 +35,18 @@ void ofApp::setup() {
     //****** SHADERS *******//
 #ifdef TARGET_OPENGLES
     shader.load(
-                "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/addons/ofxLua/gea/bin/data/scripts/my-shaders/of-example/noise.vert",
-                "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/addons/ofxLua/gea/bin/data/scripts/my-shaders/of-example/noise.frag");
+                "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/apps/GEA/gea_swig/bin/data/scripts/my-shaders/of-example/noise.vert",
+                "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/apps/GEA/gea_swig/bin/data/scripts/my-shaders/of-example/noise.frag");
     
 #else
     if(ofGetGLProgrammableRenderer()){
         shader.load(
-                    "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/addons/ofxLua/gea/bin/data/scripts/my-shaders/of-example/noise.vert",
-                    "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/addons/ofxLua/gea/bin/data/scripts/my-shaders/of-example/noise.frag");
+                    "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/apps/GEA/gea_swig/bin/data/scripts/my-shaders/of-example/noise.vert",
+                    "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/apps/GEA/gea_swig/bin/data/scripts/my-shaders/of-example/noise.frag");
     }else{
         shader.load(
-                    "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/addons/ofxLua/gea/bin/data/scripts/my-shaders/of-example/noise.vert",
-                    "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/addons/ofxLua/gea/bin/data/scripts/my-shaders/of-example/noise.frag");
+                    "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/apps/GEA/gea_swig/bin/data/scripts/my-shaders/of-example/noise.vert",
+                    "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/apps/GEA/gea_swig/bin/data/scripts/my-shaders/of-example/noise.frag");
     }
 #endif
     
@@ -120,18 +121,18 @@ void ofApp::update() {
             //test load shader
 #ifdef TARGET_OPENGLES
             shader.load(
-                        "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/addons/ofxLua/gea/bin/data/scripts/my-shaders/of-example/noise.vert",
-                        "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/addons/ofxLua/gea/bin/data/scripts/my-shaders/of-example/noise.frag");
+                        "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/apps/GEA/gea_swig/bin/data/scripts/my-shaders/of-example/noise.vert",
+                        "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/apps/GEA/gea_swig/bin/data/scripts/my-shaders/of-example/noise.frag");
             
 #else
             if(ofGetGLProgrammableRenderer()){
                 shader.load(
-                            "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/addons/ofxLua/gea/bin/data/scripts/my-shaders/of-example/noise.vert",
-                            "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/addons/ofxLua/gea/bin/data/scripts/my-shaders/of-example/noise.frag");
+                            "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/apps/GEA/gea_swig/bin/data/scripts/my-shaders/of-example/noise.vert",
+                            "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/apps/GEA/gea_swig/bin/data/scripts/my-shaders/of-example/noise.frag");
             }else{
                 shader.load(
-                            "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/addons/ofxLua/gea/bin/data/scripts/my-shaders/of-example/ab.vert",
-                            "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/addons/ofxLua/gea/bin/data/scripts/my-shaders/of-example/ab.frag");
+                            "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/apps/GEA/gea_swig/bin/data/scripts/my-shaders/of-example/ab.vert",
+                            "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/apps/GEA/gea_swig/bin/data/scripts/my-shaders/of-example/ab.frag");
             }
 #endif
         }
@@ -175,9 +176,11 @@ void ofApp::draw() {
 	// call the script's draw() function
 	lua.scriptDraw();
 	
+    /*
 	ofSetColor(0);
 	ofDrawBitmapString("use <- & -> to change between scripts", 10, ofGetHeight()-22);
 	ofDrawBitmapString(scripts[currentScript], 10, ofGetHeight()-10);
+     */
 }
 
 //--------------------------------------------------------------
@@ -209,7 +212,44 @@ void ofApp::keyPressed(int key) {
 		case ' ':
 			lua.doString("print(\"this is a lua string saying you hit the space bar!\")");
 			break;
+        case 'f':
+            if(ofGetWindowMode() == 0){
+                ofSetFullscreen(true);
+                ofBackground(0, 0, 0);
+            }else{
+                ofSetFullscreen(false);
+                ofBackground(0, 0, 0);
+            }
+            break;
+        case 'm':
+            ofHideCursor();
+            break;
+        case 'M':
+            ofShowCursor();
+            break;
 	}
+    if( key == 's' ){
+        doShader = !doShader;
+    }
+    if( key == 'p' ){
+        //test load shader
+#ifdef TARGET_OPENGLES
+        shader.load(
+                    "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/apps/GEA/gea_swig/bin/data/scripts/my-shaders/of-example/noise.vert",
+                    "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/apps/GEA/gea_swig/bin/data/scripts/my-shaders/of-example/noise.frag");
+        
+#else
+        if(ofGetGLProgrammableRenderer()){
+            shader.load(
+                        "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/apps/GEA/gea_swig/bin/data/scripts/my-shaders/of-example/noise.vert",
+                        "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/apps/GEA/gea_swig/bin/data/scripts/my-shaders/of-example/noise.frag");
+        }else{
+            shader.load(
+                        "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/apps/GEA/gea_swig/bin/data/scripts/my-shaders/of-example/ab.vert",
+                        "/Users/ari/Tools/openframeworks/of_v0.8.4_osx_release/apps/GEA/gea_swig/bin/data/scripts/my-shaders/of-example/ab.frag");
+        }
+#endif
+    }
 	
 	lua.scriptKeyPressed(key);
 }

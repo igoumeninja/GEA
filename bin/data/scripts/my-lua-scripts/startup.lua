@@ -1,8 +1,6 @@
-
 function setup()
    of.setWindowTitle("startUp")
    of.background(0)
---   aNumber = my.myFunction(3.45)
 end
 ----------------------------------------------------
 function update()
@@ -16,6 +14,7 @@ function draw()
 
    of.setColor(250,30,230,230)
    of.rect(100,100,100,100)
+   of.setColor(250,30,20,230)   
    of.rect(100,300,100,my.myFunction(300))
 end
 ----------------------------------------------------
