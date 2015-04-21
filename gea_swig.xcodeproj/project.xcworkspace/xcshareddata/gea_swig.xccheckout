@@ -6,24 +6,40 @@
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>8B539E5C-8ECA-4DF4-976B-E4CB2D6BDE2B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>gea_swig</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>96A84E6713B17481F37C8B1E6FDAD12829F92249</key>
 		<string>github.com:danomatika/ofxLua.git</string>
+		<key>D7EBE705BE8B982EFFAD539C69343646ED36966F</key>
+		<string>github.com:igoumeninja/Gea.git</string>
 	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>gea_swig.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>96A84E6713B17481F37C8B1E6FDAD12829F92249</key>
-		<string>ofxLua/</string>
+		<string>../../../../../addons/ofxLua</string>
+		<key>D7EBE705BE8B982EFFAD539C69343646ED36966F</key>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>github.com:danomatika/ofxLua.git</string>
+	<string>github.com:igoumeninja/Gea.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>96A84E6713B17481F37C8B1E6FDAD12829F92249</string>
+	<string>D7EBE705BE8B982EFFAD539C69343646ED36966F</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D7EBE705BE8B982EFFAD539C69343646ED36966F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>gea_swig</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
