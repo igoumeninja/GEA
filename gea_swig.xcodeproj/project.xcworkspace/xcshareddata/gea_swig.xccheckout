@@ -20,7 +20,7 @@
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>96A84E6713B17481F37C8B1E6FDAD12829F92249</key>
-		<string>../../../../../addons/ofxLua</string>
+		<string>../../../addons/ofxLua</string>
 		<key>D7EBE705BE8B982EFFAD539C69343646ED36966F</key>
 		<string>../..</string>
 	</dict>
